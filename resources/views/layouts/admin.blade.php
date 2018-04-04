@@ -50,6 +50,8 @@
                     <a href="{{Route('admin.notice.add')}}"><i class="fa fa-diamond"></i> <span class="nav-label">Add Notice</span></a>
                     <a href="{{Route('admin.news.add')}}"><i class="fa fa-diamond"></i> <span class="nav-label">Add News</span></a>
                     <a href="{{Route('admin.events.add')}}"><i class="fa fa-diamond"></i> <span class="nav-label">Add Events</span></a>
+                    <a href="{{Route('admin.student.form')}}"><i class="fa fa-diamond"></i> <span class="nav-label">Students Form</span></a>
+
                 </li>
             </ul>
 

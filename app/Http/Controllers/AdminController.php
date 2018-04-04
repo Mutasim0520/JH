@@ -18,14 +18,76 @@ use Auth;
 
 class AdminController extends Controller
 {
+    public function deleteStudent(Request $request){
+        $student = Students::find($request->id);
+        $student->delete();
+        return redirect()->back();
+    }
+
+    public function ShowStudentsEditForm(Request $request){
+        $form = Students::find($request->id);
+        $myfile = fopen(public_path("depts.txt"), "r") or die("Unable to open file!");
+        $array = [];
+        while (!feof($myfile)) {
+            $line = fgets($myfile);
+            array_push($array,$line);
+        }
+        return view('admin.edits.studentsFormEdit',['depts'=>$array,'form'=>$form]);
+    }
+
+    public function updateStudentForm(Request $request){
+        try{
+            $student_form = Students::find($request->id);
+            $student_form->name = trim($request->name);
+            if($request->hasFile('photo')){
+                $file = $request->file('photo');
+                $fileName = time().$request->file('photo')->getClientOriginalName();
+                $file->move(public_path('/uploads/images'), $fileName);
+                $student_form->photo = $fileName;
+            }
+            $student_form->reg_id = trim($request->reg_id);
+            $student_form->admission_type = trim($request->admission_type);
+            $student_form->father_name = trim($request->father_name);
+            $student_form->mother_name = trim($request->mother_name);
+            $student_form->present_address = trim($request->present_address);
+            $student_form->permanent_address = trim($request->permanent_address);
+            $student_form->dob = Date($request->dob);
+            $student_form->dept = trim($request->dept);
+            $student_form->bg = trim($request->bg);
+            $student_form->identity = trim($request->identity);
+            $student_form->present_year = trim($request->present_year);
+            $student_form->class_role = trim($request->class_role);
+            $student_form->admission_session = trim($request->admission_session);
+            $student_form->current_session = trim($request->current_session);
+            $student_form->res_status = trim($request->res_status);
+            $student_form->building = trim($request->building);
+            $student_form->room = trim($request->room);
+            $student_form->bed = trim($request->bed);
+            $student_form->readd_status = trim($request->readd_status);
+            $student_form->mobile = trim($request->mobile);
+            $student_form->email = trim($request->email);
+            $student_form->g_mobile = trim($request->g_mobile);
+            $student_form->save();
+            Session::flash('success_post','Successfully Saved');
+            return redirect()->back();
+        }
+        catch(\Exception $e){
+            return response("error",500);
+        }
+    }
+
+    public function ShowStudentsForm(){
+        $students = Students::with('user')->orderBy('id','DESC')->get();
+        return view('admin.student',['student'=>$students]);
+    }
+
     public function ShowDashboard(){
         $news = News::with('broadcasts_image')->orderBy('id','DESC')->get();
         $events = Events::with('events_image')->orderBy('id','DESC')->get();
         $notice = Notices::orderBy('id','DESC')->get();
         $administration = Administration::orderBy('id','DESC')->get();
         $honor = Honors::orderBy('id','DESC')->get();
-        $students = Students::with('user')->orderBy('id','DESC')->get();
-        return view('admin.dashboard',['news' => $news, 'events'=>$events, 'notice'=>$notice, 'administration'=>$administration,'honor'=>$honor,'student'=>$students]);
+        return view('admin.dashboard',['news' => $news, 'events'=>$events, 'notice'=>$notice, 'administration'=>$administration,'honor'=>$honor]);
     }
 
     public  function ShowRoleOfHonorsForm(){

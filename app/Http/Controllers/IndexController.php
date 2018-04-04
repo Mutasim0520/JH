@@ -75,9 +75,9 @@ class IndexController extends Controller
         }
         $form = Student_form::where('user_id', (Auth::user()->id))->first();
         if($form){
-            return view('user.studentsFormEdit',['depts' => $array,'form'=>$form]);
+            return view('user.Form',['item'=>$form]);
         }
-        else return view('user.studentsForm',['depts' => $array]);
+        return view('user.studentsForm',['depts' => $array]);
     }
 
     public function storeStudentForm(Request $request){
@@ -85,6 +85,7 @@ class IndexController extends Controller
 
             $student_form = new Student_form();
             $student_form->user_id = Auth::user()->id;
+            $student_form->name = trim($request->name);
             if($request->hasFile('photo')){
                 $file = $request->file('photo');
                 $fileName = time().$request->file('photo')->getClientOriginalName();
@@ -125,7 +126,7 @@ class IndexController extends Controller
     public function editStudentForm(Request $request){
         try{
             $student_form = Student_form::find($request->id);
-            $student_form->user_id = Auth::user()->id;
+            $student_form->name = trim($request->name);
             if($request->hasFile('photo')){
                 $file = $request->file('photo');
                 $fileName = time().$request->file('photo')->getClientOriginalName();

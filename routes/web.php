@@ -36,6 +36,10 @@ Route::post('/admin/login','Auth\AdminLoginController@login')->name('admin.login
 Route::get('/admin/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
 Route::group(['prefix' => 'admin',  'middleware' => 'auth:admin'], function () {
     Route::get('/dashboard', 'AdminController@ShowDashboard')->name('admin.dashboard');
+    Route::get('/students/form', 'AdminController@ShowStudentsForm')->name('admin.student.form');
+    Route::get('/edit/student/form/{id}', 'AdminController@ShowStudentsEditForm');
+    Route::get('/delete/student/form/{id}', 'AdminController@deleteStudent');
+    Route::post('/edit/student/form/{id}', 'AdminController@updateStudentForm');
 
     Route::get('/add/role/of/honors', 'AdminController@ShowRoleOfHonorsForm')->name('admin.roleOfHonors');
     Route::post('/add/role/of/honors', 'AdminController@storeRoleOfHonorsForm')->name('admin.store.roleOfHonors');

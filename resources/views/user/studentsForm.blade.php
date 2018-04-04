@@ -11,6 +11,9 @@
            <form action="{{Route('user.submit.student.form')}}" method="POST">
                {{csrf_field()}}
                <fieldset class="form-horizontal">
+                   <div class="form-group"><label class="col-sm-2 control-label">Full Name</label>
+                       <div class="col-sm-10"><input type="text" class="form-control" placeholder="" name="name" required></div>
+                   </div>
                    <div class="form-group"><label class="col-sm-2 control-label">Registration ID</label>
                        <div class="col-sm-10"><input type="text" class="form-control" placeholder="" name="reg_id" required></div>
                    </div>
