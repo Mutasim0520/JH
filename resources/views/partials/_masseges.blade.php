@@ -66,3 +66,15 @@
         </div>
     </div>
 @endif
+
+@if(Session::has('registration_confirmation'))
+    <div class="modal fade success-popup" id="registration_confirmation" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <p class="lead">{{Session::get('registration_confirmation')}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+@endif

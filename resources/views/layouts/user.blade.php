@@ -219,6 +219,8 @@
     $(document).ready(function () {
         @if(Session::has('success_post'))
             $('#success_post').modal('show');
+        @elseif(Session::has('registration_confirmation'))
+            $('#registration_confirmation').modal('show');
         @endif
     });
 </script>
