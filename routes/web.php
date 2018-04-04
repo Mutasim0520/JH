@@ -22,6 +22,8 @@ Route::get('/contact','IndexController@showContact')->name('user.contact');
 Route::get('/detail/news/{id}','IndexController@showNewsDetails');
 Route::get('/detail/event/{id}','IndexController@showEventDetails');
 Route::get('/detail/notice/{id}','IndexController@showNoticeDetails');
+Route::get('/check/email','IndexController@checkEmail');
+Route::get('/activate/{id}','IndexController@activateUser');
 
 Route::group(['middleware' => 'auth'], function (){
     Route::get('/student-form','IndexController@showStudentsForm')->name('user.student.form');

@@ -13,9 +13,27 @@ use App\Student as Student_form;
 use Auth;
 use App\Notice as Notice;
 use Session;
+use App\User as User;
 
 class IndexController extends Controller
 {
+    public function activateUser(Request $request){
+        $user = User::find(decrypt($request->id));
+        $user ->status = 1;
+        $user->save();
+        $login = Auth::loginUsingId($user->id);
+        if($login){
+            return redirect('/');
+        }
+    }
+
+    public function checkEmail(Request $request){
+        $check = sizeof(User::where(['email' => $request->email])->get());
+        if ($check>0) $check = "false";
+        else $check = "true";
+        return $check;
+    }
+
     public function showIndex(){
         $today = date('Y-m-d');
         $upcomming_events = Events::with('events_image')->where('date','>',$today)->orderBy('id','DESC')->get();
