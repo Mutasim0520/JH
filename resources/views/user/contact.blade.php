@@ -34,7 +34,7 @@
                                     </div>
                                     <div class="address-content">
                                         <h3>Address</h3>
-                                        <p>300 West 125th Street New York, NY 10027 212-316-2500</p>
+                                        <p>Jagannath Hall, University of Dhaka</p>
                                     </div>
                                 </div>
                             </div>
@@ -56,7 +56,7 @@
                                     </div>
                                     <div class="address-content">
                                         <h3>Email</h3>
-                                        <p>themegrilsll@gmail.com</p>
+                                        <p>abc@gmail.com</p>
                                     </div>
                                 </div>
                             </div>

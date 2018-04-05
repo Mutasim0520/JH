@@ -7,7 +7,9 @@
                 <div class="container">
                     <div class="row">
                         <div class="slider-content-area">
-                           
+                           <div class="slide-text">
+                                <h2>When the University of Dhaka was established in July 1921 in British India under the University of Dacca ACT of 1920, three halls of residence were also established at the same time, Jagannath Hall was one of them.</h2>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -16,7 +18,9 @@
                 <div class="container">
                     <div class="row">
                         <div class="slider-content-area">
-                            
+                            <div class="slide-text">
+                                <h2>Jagannath Hall of Dhaka University is a residence hall for minority students, Hindu, Buddhist, Christian, and others</h2>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -25,7 +29,9 @@
                 <div class="container">
                     <div class="row">
                         <div class="slider-content-area">
-                           
+                           <div class="slide-text">
+                                <h2>Departments and Institutions of the Dhaka University arranged the Saraswati Pooja at the Jagannath Hall playground every year.</h2>
+                            </div>
                         </div>
                     </div>
                 </div>

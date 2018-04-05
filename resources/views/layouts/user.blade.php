@@ -41,13 +41,13 @@
             <div class="header-top">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-6 col-sm-8">
+                        <div class="col-md-4 col-sm-12">
                             <ul class="header-top-left">
                                 <li><a href="#"><i class="fa fa-envelope-o"></i>abc@gmail.com</a></li>
                                 <li><a href="#"><i class="fa fa-phone"></i> +880 163 123 7884</a></li>
                             </ul>
                         </div>
-                        <div class="col-md-4 col-sm-4">
+                        <div class="col-md-3 col-sm-12">
                             <ul class="social-bookmarks">
                                 <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                                 <li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -56,7 +56,7 @@
                                 <li><a href="#"><i class="fa fa-rss"></i></a></li>
                             </ul>
                         </div>
-                        <div class="col-md-2 col-sm-4">
+                        <div class="col-md-5 col-sm-12">
                             <ul class="social-bookmarks">
                                 @if(Auth::user())
                                     <li><a href="javascript:void(0);">{{Auth::user()->name}}</a></li>
@@ -107,7 +107,7 @@
                                         <i class="fa fa-search"></i>
                                     </li>
                                     <li class="search-box">
-                                        <form action="https://themecoffer.com/html/prefix-preview/Post">
+                                        <form action="">
                                             <input type="text" class="search-option" placeholder="SEARCH HARE">
                                         </form>
                                     </li>
@@ -165,9 +165,11 @@
                             <div class="widget-item">
                                 <h2>Menu</h2>
                                 <ul class="widget-link">
-                                    <li><a href="#"> <i aria-hidden="true" class="fa fa-long-arrow-right"></i>About Us</a></li>
-                                    <li><a href="#"><i aria-hidden="true" class="fa fa-long-arrow-right"></i>Contact Us</a></li>
-                                    <li><a href="#"><i aria-hidden="true" class="fa fa-long-arrow-right"></i>Latest News</a></li>
+                                    <li><a href="{{Route('user.history')}}"> <i aria-hidden="true" class="fa fa-long-arrow-right"></i>About Us</a></li>
+                                    <li><a href="{{Route('user.contact')}}"><i aria-hidden="true" class="fa fa-long-arrow-right"></i>Contact Us</a></li>
+                                    <li><a href="{{Route('user.notice')}}"><i aria-hidden="true" class="fa fa-long-arrow-right"></i>Notice</a></li>
+                                    <li><a href="{{Route('user.news')}}"><i aria-hidden="true" class="fa fa-long-arrow-right"></i>News</a></li>
+                                    <li><a href="{{Route('user.events')}}"><i aria-hidden="true" class="fa fa-long-arrow-right"></i>Events</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -186,7 +188,7 @@
                             <div class="widget-item">
                                 <h2>Get In Tuch</h2>
                                 <ul class="widget-address">
-                                    <li><a href="#"><i class="fa fa-map-marker m-5"></i> Jagannath Hall, University of Dhaka</a></li>
+                                    <li><a href="#"><i class="fa fa-map-marker m-5"></i>Jagannath Hall, University of Dhaka</a></li>
                                     <li><a href="#"><i class="fa fa-phone m-5"></i> +6681 631 237 884</a></li>
                                     <li><a href="#"><i class="fa fa-envelope m-5"></i> info@example.com</a></li>
                                 </ul>
@@ -202,6 +204,11 @@
                     <div class="col-md-6">
                         <div class="copyright">
                             <p>Copyright 2017 &copy; Jagannath Hall. All Rights Reserved. </p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="copyright">
+                            <span style="color: white; font-style: italic;">Developed By: </span> <a href="http://soft360d.com/">360 Degree Software</a>
                         </div>
                     </div>
                 </div>
@@ -228,6 +235,4 @@
 @yield('script')
 </body>
 
-
-<!-- Mirrored from themecoffer.com/html/prefix-preview/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 20 Mar 2018 11:35:36 GMT -->
 </html>

@@ -4310,3 +4310,7 @@ textarea.text-area:focus {
   font-family: arial;
   padding: 2em;
 }
+
+.header-top a {
+    color: white !important;
+}
